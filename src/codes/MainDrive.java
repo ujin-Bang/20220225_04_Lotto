@@ -10,6 +10,8 @@ public class MainDrive {
 		
 		Scanner myScanner = new Scanner(System.in);
 		
+		int[] myNumbers = new int[6];
+		
 		for(int i=0; i<6; i++) {
 			
 			while (true) {
@@ -19,7 +21,19 @@ public class MainDrive {
 				
 				boolean isRangeOk = (1 <= inputNum) && (inputNum <=45);
 				
-				if(isRangeOk) {
+				boolean isDuplOk = true;
+				
+				for(int myNum : myNumbers) {
+					if(myNum == inputNum) {
+						isDuplOk = false;
+						break;
+					}
+				}
+				
+				if(isRangeOk && isDuplOk) { 
+					
+					myNumbers[i] = inputNum;
+					
 					break;
 				}
 			}
